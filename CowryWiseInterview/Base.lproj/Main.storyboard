@@ -59,7 +59,7 @@
                                                 <color key="textColor" red="0.16470588235294117" green="0.86274509803921573" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1000" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qOh-q8-MNW">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.00" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qOh-q8-MNW">
                                                 <rect key="frame" x="18" y="253" width="279" height="45"/>
                                                 <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -80,7 +80,7 @@
                                                 <color key="textColor" red="0.72941176470588232" green="0.72941176470588232" blue="0.72941176470588232" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2000322" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HMR-Sg-xDH">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.00" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HMR-Sg-xDH">
                                                 <rect key="frame" x="18" y="318" width="279" height="45"/>
                                                 <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -90,7 +90,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EUR" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOb-uS-QtM">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NGN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOb-uS-QtM">
                                                 <rect key="frame" x="297" y="318" width="60" height="45"/>
                                                 <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -175,21 +175,25 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get rates straight to your email inbox" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGR-mp-UbW">
-                                                        <rect key="frame" x="51.5" y="412" width="272.5" height="22"/>
+                                                        <rect key="frame" x="51.5" y="416" width="272.5" height="22"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wUc-Qe-iTh">
-                                                        <rect key="frame" x="51.5" y="434" width="272.5" height="1"/>
+                                                        <rect key="frame" x="51.5" y="438" width="272.5" height="1"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="Wen-q1-CNG"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3lD-UM-rtD" customClass="LineChartView" customModule="Charts">
-                                                        <rect key="frame" x="30" y="81" width="315" height="291"/>
+                                                        <rect key="frame" x="30" y="71" width="315" height="305"/>
                                                         <color key="backgroundColor" red="0.17254901960784313" green="0.47843137254901957" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="315" id="8e1-xE-X2y"/>
+                                                            <constraint firstAttribute="height" constant="305" id="EdN-dY-btC"/>
+                                                        </constraints>
                                                     </view>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.027450980392156862" green="0.29803921568627451" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
@@ -200,13 +204,13 @@
                                                     <constraint firstItem="de6-LY-CF6" firstAttribute="top" secondItem="fAY-dz-cQt" secondAttribute="top" constant="16" id="5a3-BR-HQf"/>
                                                     <constraint firstItem="3lD-UM-rtD" firstAttribute="trailing" secondItem="HxY-h1-LMa" secondAttribute="trailing" id="7T8-VX-6Hx"/>
                                                     <constraint firstAttribute="trailing" secondItem="HxY-h1-LMa" secondAttribute="trailing" constant="30" id="DXN-qH-8ec"/>
-                                                    <constraint firstItem="3lD-UM-rtD" firstAttribute="top" secondItem="Hip-H2-ds7" secondAttribute="bottom" constant="30" id="GJ2-EW-6Tc"/>
+                                                    <constraint firstItem="3lD-UM-rtD" firstAttribute="top" secondItem="Hip-H2-ds7" secondAttribute="bottom" constant="20" id="GJ2-EW-6Tc"/>
                                                     <constraint firstItem="HxY-h1-LMa" firstAttribute="top" secondItem="fAY-dz-cQt" secondAttribute="top" constant="16" id="Hxk-E9-ipn"/>
+                                                    <constraint firstItem="wUc-Qe-iTh" firstAttribute="top" secondItem="gGR-mp-UbW" secondAttribute="bottom" id="IX9-Uz-jfr"/>
                                                     <constraint firstItem="Hip-H2-ds7" firstAttribute="centerX" secondItem="de6-LY-CF6" secondAttribute="centerX" id="JOz-8O-ZNB"/>
-                                                    <constraint firstAttribute="bottom" secondItem="gGR-mp-UbW" secondAttribute="bottom" constant="40" id="OHh-HE-a7Z"/>
                                                     <constraint firstItem="3lD-UM-rtD" firstAttribute="leading" secondItem="de6-LY-CF6" secondAttribute="leading" id="QnD-lR-47S"/>
                                                     <constraint firstItem="iUS-mT-kZe" firstAttribute="top" secondItem="HxY-h1-LMa" secondAttribute="bottom" constant="-5" id="UCq-35-GRb"/>
-                                                    <constraint firstItem="wUc-Qe-iTh" firstAttribute="top" secondItem="gGR-mp-UbW" secondAttribute="bottom" id="ZpL-Ip-a2o"/>
+                                                    <constraint firstAttribute="bottom" secondItem="wUc-Qe-iTh" secondAttribute="bottom" constant="35" id="btf-Ta-Zwg"/>
                                                     <constraint firstItem="de6-LY-CF6" firstAttribute="leading" secondItem="fAY-dz-cQt" secondAttribute="leading" constant="30" id="ci7-G7-g5T"/>
                                                     <constraint firstItem="Hip-H2-ds7" firstAttribute="top" secondItem="de6-LY-CF6" secondAttribute="bottom" constant="-5" id="cud-dA-epz"/>
                                                     <constraint firstItem="iUS-mT-kZe" firstAttribute="centerX" secondItem="HxY-h1-LMa" secondAttribute="centerX" id="pkX-KO-01j"/>
@@ -214,13 +218,13 @@
                                                 </constraints>
                                             </view>
                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="european-union" translatesAutoresizingMaskIntoConstraints="NO" id="VMc-Gq-qQL" customClass="LeftsideBorderImage" customModule="CowryWiseInterview" customModuleProvider="target">
-                                                <rect key="frame" x="18" y="398" width="40" height="40"/>
+                                                <rect key="frame" x="18" y="398" width="60" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="KBN-X2-liK"/>
+                                                    <constraint firstAttribute="width" constant="60" id="KBN-X2-liK"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EUR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qd5-d9-mtt" customClass="TopandBottomBorderLabel" customModule="CowryWiseInterview" customModuleProvider="target">
-                                                <rect key="frame" x="58" y="398" width="60" height="40"/>
+                                                <rect key="frame" x="78" y="398" width="60" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="60" id="XSZ-ez-w1I"/>
                                                 </constraints>
@@ -229,7 +233,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MrB-Cz-QzA" customClass="RightsideBorderButton" customModule="CowryWiseInterview" customModuleProvider="target">
-                                                <rect key="frame" x="118" y="398" width="24" height="40"/>
+                                                <rect key="frame" x="138" y="398" width="24" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="0Ye-OW-7Rd"/>
                                                 </constraints>
@@ -238,10 +242,10 @@
                                                     <action selector="FirstCurrencyBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A1f-Ad-Iec"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="european-union" translatesAutoresizingMaskIntoConstraints="NO" id="WL7-eV-Jqs" customClass="LeftsideBorderImage" customModule="CowryWiseInterview" customModuleProvider="target">
-                                                <rect key="frame" x="233" y="398" width="40" height="40"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nigerian_flag" translatesAutoresizingMaskIntoConstraints="NO" id="WL7-eV-Jqs" customClass="LeftsideBorderImage" customModule="CowryWiseInterview" customModuleProvider="target">
+                                                <rect key="frame" x="213" y="398" width="60" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="1Q6-VL-Wbn"/>
+                                                    <constraint firstAttribute="width" constant="60" id="1Q6-VL-Wbn"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8J-6E-930" customClass="RightsideBorderButton" customModule="CowryWiseInterview" customModuleProvider="target">
@@ -267,7 +271,7 @@
                                                 <color key="textColor" red="0.039215686270000001" green="0.35294117650000001" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EUR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHd-eI-1A4" customClass="TopandBottomBorderLabel" customModule="CowryWiseInterview" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NGN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHd-eI-1A4" customClass="TopandBottomBorderLabel" customModule="CowryWiseInterview" customModuleProvider="target">
                                                 <rect key="frame" x="273" y="398" width="60" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="60" id="Xkh-f8-flI"/>
@@ -364,6 +368,7 @@
                         <outlet property="FirstCurrencyLabel" destination="pc4-4q-qCH" id="7mn-Rc-NdD"/>
                         <outlet property="FirstCurrencyLabelId" destination="Qd5-d9-mtt" id="aIq-aH-EgS"/>
                         <outlet property="FirstCurrencyTextField" destination="qOh-q8-MNW" id="aM2-ZS-jSE"/>
+                        <outlet property="LineChartView" destination="3lD-UM-rtD" id="KRE-q1-HJl"/>
                         <outlet property="SecondCurrencyImageView" destination="WL7-eV-Jqs" id="Qfz-YX-wc5"/>
                         <outlet property="SecondCurrencyLabel" destination="mOb-uS-QtM" id="aeA-fM-YFz"/>
                         <outlet property="SecondCurrencyLabelId" destination="jHd-eI-1A4" id="tNe-4o-2Zj"/>
@@ -382,6 +387,7 @@
         <image name="european-union" width="24" height="24"/>
         <image name="hamburger_menu_button" width="30" height="30"/>
         <image name="info" width="48" height="48"/>
+        <image name="nigerian_flag" width="16" height="16"/>
         <image name="transfer_icon" width="60" height="60"/>
     </resources>
 </document>
