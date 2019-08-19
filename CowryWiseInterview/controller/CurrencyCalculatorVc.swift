@@ -140,15 +140,17 @@ class CurrencyCalculatorVc: UIViewController, UIPickerViewDelegate,UIPickerViewD
     
     // code to update graph
     func updateGraphWithData(dataEntryX forX:[String]){
+        
       //this is the Array that will eventually be displayed on the graph.
         var lineChartEntry  = [ChartDataEntry]()
         let GraphDataCounts = getCurrencyGraphCountsFromDatabase()
          for i in 0..<forX.count {
-       // for i in 0..<GraphDataCounts.count {
             
-            let dataEntry = ChartDataEntry(x: Double(i), y: Double(GraphDataCounts[i].count), data: DateData as AnyObject?) // here we set the X and Y status in a data chart entry
+            // here we set the X and Y status in a data chart entry
+            let dataEntry = ChartDataEntry(x: Double(i), y: Double(GraphDataCounts[i].count), data: DateData as AnyObject?)
             lineChartEntry.append(dataEntry)
         }
+        
         
         let graphLine = LineChartDataSet(entries: lineChartEntry, label: "Amount") //Here we convert lineChartEntry to a LineChartDataSet
         graphLine.colors = [#colorLiteral(red: 0.2549019608, green: 0.5450980392, blue: 1, alpha: 1)] //Sets the colour to blue
