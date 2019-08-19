@@ -12,7 +12,7 @@ import Foundation
 var ChangedCurrency: String!
 
 
-// API limitations prevent me from using "https"  here 
+// API limitations prevented me from using "https"  here 
 //base_url
 let BASE_URL =  "http://data.fixer.io/api/"
 //convert currency url

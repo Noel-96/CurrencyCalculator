@@ -1,0 +1,6 @@
+framework module Pods_CowryWiseInterview {
+  umbrella header "Pods-CowryWiseInterview-umbrella.h"
+
+  export *
+  module * { export * }
+}

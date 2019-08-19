@@ -28,8 +28,8 @@ class DataService {
                 if response.result.error == nil {
                     guard let data = response.data else { return }
                     var json = JSON(data: data)
-                     ChangedCurrency = json["rates"][convertedCurrency].stringValue
-                     completion(true)
+                    ChangedCurrency = json["rates"][convertedCurrency].stringValue
+                    completion(true)
                 } else {
                     completion(false)
                     debugPrint(response.result.error as Any )

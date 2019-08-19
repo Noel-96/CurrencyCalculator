@@ -42,7 +42,18 @@ class CurrencyCalculatorVc: UIViewController, UIPickerViewDelegate,UIPickerViewD
     
     @IBOutlet weak var past90daysdot: UILabel!
     
+    @IBOutlet weak var past30btn: UIButton!
+    
+    @IBOutlet weak var past90btn: UIButton!
+    
     @IBOutlet weak var LineChartView: LineChartView!
+    
+    
+    
+    //this the array we are gonna display on the graph also couldnt use the API data due to the limitations again.
+    var graphData = [9.12 , 11.12, 13.12, 15,12, 12.4 , 13.4 , 10.9 , 13.0 , 9.80]
+    var DateData = [" 01 Aug", " 07 Aug", " 15 Aug", " 25Aug", " 30Aug" , " 5Sep" , " 15Sep" , " 25Sep" ," 28Sep"]
+    weak var axisFormatDelegate: IAxisValueFormatter?
     
     
     override func viewDidLoad() {
@@ -51,34 +62,25 @@ class CurrencyCalculatorVc: UIViewController, UIPickerViewDelegate,UIPickerViewD
         past30daysdot.isHidden = false
         past90daysdot.isHidden = true
 
-        
         // get array of currencies
         CurrencyList = LocalDataService.instance.getCurrencyLists()
-        
-        //this the array we are gonna display on the graph also couldnt use the API data due to the limitations again.
-        var graphData = [9.12 , 11.12, 13.12, 15,12, 12.4 , 13.4 , 10.9 , 13.0 , 9.80]
-        
+
         // defualt currency sign
         CurrencyToBeChangedSign = "NGN"
-        
         
         //making both text fields uneditable
         // this was due to the limitations of the API free plan
         FirstCurrencyTextField.isUserInteractionEnabled = false
         SecondCurrencyTextField.isUserInteractionEnabled = false
         
-        
-        
-
-        //add defualt data to line chart
+        //add dummy data to realm database *note i couldnt use the data from the API because the free plan was limited 
         for i in 0 ..< graphData.count {
             let currencyGraphCount = CurrencyGraphCount()
             currencyGraphCount.count =   graphData[i]
             currencyGraphCount.save()
         }
-        updateGraphWithData()
+        updateGraphWithData(dataEntryX: DateData)
     }
-    
     
     
     // code to get data from realm database
@@ -96,14 +98,17 @@ class CurrencyCalculatorVc: UIViewController, UIPickerViewDelegate,UIPickerViewD
         //locked functionality due to API limitations, the fixer.io free plan only supports EUR base currency
     }
     
+    
     @IBAction func SecondCurrencyBtn(_ sender: Any) {
       setupUiPickerView()
     }
+    
     
     @objc func onDoneButtonTapped() {
         toolBar.removeFromSuperview()
         picker.removeFromSuperview()
     }
+    
     
     @IBAction func ConvertBtn(_ sender: Any) {
         checkforInternetConnection()
@@ -116,41 +121,32 @@ class CurrencyCalculatorVc: UIViewController, UIPickerViewDelegate,UIPickerViewD
         }
     }
     
+    
     @IBAction func past30daysBtn(_ sender: Any) {
         past30daysdot.isHidden = false
         past90daysdot.isHidden = true
+        past90btn.setTitleColor( #colorLiteral(red: 0.2274509804, green: 0.4745098039, blue: 0.8509803922, alpha: 1) , for: .normal)
+        past30btn.setTitleColor(#colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1) ,for : .normal)
     }
+    
     
     @IBAction func past90daysBtn(_ sender: Any) {
         past30daysdot.isHidden = true
         past90daysdot.isHidden = false
+        past90btn.setTitleColor(#colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9764705882, alpha: 1), for: .normal)
+        past30btn.setTitleColor(#colorLiteral(red: 0.2274509804, green: 0.4745098039, blue: 0.8509803922, alpha: 1), for: .normal)
     }
     
     
-    
     // code to update graph
-    func updateGraphWithData(){
+    func updateGraphWithData(dataEntryX forX:[String]){
       //this is the Array that will eventually be displayed on the graph.
         var lineChartEntry  = [ChartDataEntry]()
-        
         let GraphDataCounts = getCurrencyGraphCountsFromDatabase()
-        for i in 0..<GraphDataCounts.count {
+         for i in 0..<forX.count {
+       // for i in 0..<GraphDataCounts.count {
             
-            // change  to 30 , 90 days
-           // let timeIntervalForDate: TimeInterval = GraphDataCounts[i].date.t
-            var today = Date()
-            var dateArray = [String]()
-            for _ in 1...10{
-                let tomorrow = Calendar.current.date(byAdding: .day, value: -1, to: today)
-                let date = DateFormatter()
-                date.dateFormat = "dd-MM-yyyy"
-                let stringDate : String = date.string(from: today)
-                today = tomorrow!
-                dateArray.append(stringDate)
-            }
-            
-            
-            let dataEntry = ChartDataEntry(x: Double(i), y: Double(GraphDataCounts[i].count)) // here we set the X and Y status in a data chart entry
+            let dataEntry = ChartDataEntry(x: Double(i), y: Double(GraphDataCounts[i].count), data: DateData as AnyObject?) // here we set the X and Y status in a data chart entry
             lineChartEntry.append(dataEntry)
         }
         
@@ -161,38 +157,41 @@ class CurrencyCalculatorVc: UIViewController, UIPickerViewDelegate,UIPickerViewD
         graphLine.mode = .cubicBezier
         graphLine.cubicIntensity = 0.2
         graphLine.drawCirclesEnabled = false
-        
-
+    
         let gradientColors = [#colorLiteral(red: 0.2549019608, green: 0.5450980392, blue: 1, alpha: 1) , UIColor.clear.cgColor, #colorLiteral(red: 0.05098039216, green: 0.3725490196, blue: 0.9960784314, alpha: 1)  ] as CFArray
         let colorLocations: [CGFloat] = [1.0, 0.0] // positioning of the gradient
         let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: colorLocations)
+        
         graphLine.fill = Fill.fillWithLinearGradient(gradient!, angle: 90.0)
         graphLine.drawFilledEnabled = true
+        graphLine.drawValuesEnabled = false
         
-        let data = LineChartData() //This is the object that will be added to the chart
-        data.addDataSet(graphLine) //Adds the line to the dataSet
-       
+        //This is the object that will be added to the chart
+        let data = LineChartData()
+        //Adds the line to the dataSet
+        data.addDataSet(graphLine)
         
-    
+        // customizing the graph
         LineChartView.rightAxis.enabled = false
         LineChartView.leftAxis.enabled = false
         LineChartView.xAxis.drawGridLinesEnabled = false
         LineChartView.xAxis.labelPosition = .bottom
+        LineChartView.xAxis.gridColor = #colorLiteral(red: 0.9813231826, green: 0.9813460708, blue: 0.9813337922, alpha: 1)
         LineChartView.xAxis.labelTextColor = #colorLiteral(red: 0.9813231826, green: 0.9813460708, blue: 0.9813337922, alpha: 1)
+        LineChartView.xAxis.axisLineColor =  #colorLiteral(red: 0.9813231826, green: 0.9813460708, blue: 0.9813337922, alpha: 1)
+        LineChartView.xAxis.setLabelCount(5, force: true)
         LineChartView.legend.enabled = false
         LineChartView.leftAxis.drawGridLinesEnabled = false
         LineChartView.leftAxis.drawLabelsEnabled = true
+    
+        //finally - it adds the chart data to the chart and causes an update
+        LineChartView.data = data
         
-        LineChartView.data = data //finally - it adds the chart data to the chart and causes an update
-        
-      
+        //format xAxis to receive strings
+        LineChartView.xAxis.valueFormatter = self
     }
     
-    
-    
-    
-   
-    
+
     // Code to set up the ui picker view to view the list of currencies 
     func setupUiPickerView(){
         picker = UIPickerView.init()
@@ -238,10 +237,24 @@ class CurrencyCalculatorVc: UIViewController, UIPickerViewDelegate,UIPickerViewD
             
             // add an action (button)
             alert.addAction(UIAlertAction(title: "Retry", style: UIAlertAction.Style.default, handler: { action in
-                
                 self.checkforInternetConnection()
             }))
             self.present(alert, animated: true, completion: nil)
         }
     }
 }
+
+
+extension CurrencyCalculatorVc: IAxisValueFormatter {
+    
+    public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        return DateData[Int(value)]
+    }
+}
+   
+
+
+
+
+
+

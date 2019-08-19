@@ -131,11 +131,11 @@
                                                 <rect key="frame" x="0.0" y="634" width="375" height="474"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="de6-LY-CF6">
-                                                        <rect key="frame" x="30" y="16" width="97" height="20"/>
+                                                        <rect key="frame" x="30" y="16" width="101" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="ikc-hT-Diz"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                                         <state key="normal" title="Past 30 days">
                                                             <color key="titleColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
@@ -144,20 +144,20 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HxY-h1-LMa">
-                                                        <rect key="frame" x="248" y="16" width="97" height="20"/>
+                                                        <rect key="frame" x="244" y="16" width="101" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="TLX-4A-9fZ"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                                         <state key="normal" title="Past 90 days">
-                                                            <color key="titleColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="titleColor" red="0.22745098039215686" green="0.47450980392156861" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="past90daysBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t5E-88-XmN"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hip-H2-ds7">
-                                                        <rect key="frame" x="74.5" y="31" width="8.5" height="20"/>
+                                                        <rect key="frame" x="76.5" y="31" width="8.5" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="dqT-UO-dAL"/>
                                                         </constraints>
@@ -166,7 +166,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUS-mT-kZe">
-                                                        <rect key="frame" x="292.5" y="31" width="8" height="20"/>
+                                                        <rect key="frame" x="290.5" y="31" width="8" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="z2b-H8-IdL"/>
                                                         </constraints>
@@ -373,7 +373,9 @@
                         <outlet property="SecondCurrencyLabel" destination="mOb-uS-QtM" id="aeA-fM-YFz"/>
                         <outlet property="SecondCurrencyLabelId" destination="jHd-eI-1A4" id="tNe-4o-2Zj"/>
                         <outlet property="SecondCurrencyTextField" destination="HMR-Sg-xDH" id="9Wp-0U-lQz"/>
+                        <outlet property="past30btn" destination="de6-LY-CF6" id="cd4-AS-vqF"/>
                         <outlet property="past30daysdot" destination="Hip-H2-ds7" id="GNq-iX-aQd"/>
+                        <outlet property="past90btn" destination="HxY-h1-LMa" id="nHT-pl-Qlc"/>
                         <outlet property="past90daysdot" destination="iUS-mT-kZe" id="ChO-Pr-dLg"/>
                     </connections>
                 </viewController>
